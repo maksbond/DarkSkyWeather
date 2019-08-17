@@ -12,6 +12,10 @@
 		7AA57E272308649E005B556E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA57E252308649E005B556E /* Main.storyboard */; };
 		7AA57E29230864A0005B556E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA57E28230864A0005B556E /* Assets.xcassets */; };
 		7AA57E2C230864A0005B556E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA57E2A230864A0005B556E /* LaunchScreen.storyboard */; };
+		7ABC4C3F23087D1C009DB920 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABC4C3E23087D1C009DB920 /* Alamofire.framework */; };
+		7ABC4C4323087E28009DB920 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4223087E28009DB920 /* APIKeys.swift */; };
+		7ABC4C4523088D15009DB920 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4423088D15009DB920 /* WeatherService.swift */; };
+		7ABC4C4723088E5B009DB920 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4623088E5B009DB920 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		7AA57E28230864A0005B556E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AA57E2B230864A0005B556E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AA57E2D230864A0005B556E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ABC4C3E23087D1C009DB920 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		7ABC4C4223087E28009DB920 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		7ABC4C4423088D15009DB920 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		7ABC4C4623088E5B009DB920 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABC4C3F23087D1C009DB920 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,7 @@
 			children = (
 				7AA57E202308649E005B556E /* DarkSkyWeather */,
 				7AA57E1F2308649E005B556E /* Products */,
+				7AA57E3323087606005B556E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +64,41 @@
 		7AA57E202308649E005B556E /* DarkSkyWeather */ = {
 			isa = PBXGroup;
 			children = (
-				7AA57E212308649E005B556E /* AppDelegate.swift */,
-				7AA57E232308649E005B556E /* ViewController.swift */,
-				7AA57E252308649E005B556E /* Main.storyboard */,
-				7AA57E28230864A0005B556E /* Assets.xcassets */,
-				7AA57E2A230864A0005B556E /* LaunchScreen.storyboard */,
+				7ABC4C4123087DE9009DB920 /* Resources */,
+				7ABC4C4023087DD5009DB920 /* Sources */,
 				7AA57E2D230864A0005B556E /* Info.plist */,
 			);
 			path = DarkSkyWeather;
+			sourceTree = "<group>";
+		};
+		7AA57E3323087606005B556E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7ABC4C3E23087D1C009DB920 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7ABC4C4023087DD5009DB920 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7AA57E212308649E005B556E /* AppDelegate.swift */,
+				7AA57E232308649E005B556E /* ViewController.swift */,
+				7ABC4C4223087E28009DB920 /* APIKeys.swift */,
+				7ABC4C4423088D15009DB920 /* WeatherService.swift */,
+				7ABC4C4623088E5B009DB920 /* Weather.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7ABC4C4123087DE9009DB920 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7AA57E252308649E005B556E /* Main.storyboard */,
+				7AA57E28230864A0005B556E /* Assets.xcassets */,
+				7AA57E2A230864A0005B556E /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,6 +110,7 @@
 			buildPhases = (
 				7AA57E1A2308649E005B556E /* Sources */,
 				7AA57E1B2308649E005B556E /* Frameworks */,
+				7AA57E3623087612005B556E /* Copy Frameworks */,
 				7AA57E1C2308649E005B556E /* Resources */,
 			);
 			buildRules = (
@@ -130,13 +168,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7AA57E3623087612005B556E /* Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			name = "Copy Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7AA57E1A2308649E005B556E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABC4C4523088D15009DB920 /* WeatherService.swift in Sources */,
+				7ABC4C4323087E28009DB920 /* APIKeys.swift in Sources */,
 				7AA57E242308649E005B556E /* ViewController.swift in Sources */,
 				7AA57E222308649E005B556E /* AppDelegate.swift in Sources */,
+				7ABC4C4723088E5B009DB920 /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +347,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C98X7R8QA5;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DarkSkyWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,8 +370,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C98X7R8QA5;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DarkSkyWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
