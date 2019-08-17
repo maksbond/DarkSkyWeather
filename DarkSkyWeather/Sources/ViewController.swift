@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -20,17 +20,39 @@ class ViewController: UIViewController {
     /// Represents current temperature for timezone.
     @IBOutlet var temperatureLabel: UILabel!
     
+    /// Location manager to get current location.
+    private let locationManager = CLLocationManager()
+    
+    private let weatherService = WeatherService(queue: DispatchQueue.global(qos: .userInitiated))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let url = URL(string: "\(APIKeys.request)/\(APIKeys.privateKey)/42.3601,-71.0589") else {
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else {
+            // TODO: Add handler for failed status
             return
         }
-        request(url).responseJSON { response in
-            if let error = response.error {
-                print(error)
-            } else if let json =  response.result.value {
-                print(json)
+        if let location = locationManager.location {
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            weatherService.requestCurrent(for: (latitude: latitude, longitude: longitude)) { weather, error in
+                if let error = error {
+                    // TODO: Process error
+                } else if let weather = weather {
+                    DispatchQueue.main.async { [weak self] in
+                        guard let strongSelf = self else { return }
+                        
+                        if let summary = weather.summary, let icon = weather.icon, let timezone = weather.timezone, let temperature = weather.temperature {
+                            strongSelf.summaryLabel.text = summary
+                            strongSelf.timezoneLabel.text = timezone
+                            strongSelf.temperatureLabel.text = "\(round(temperature))"
+                        }
+                    }
+                }
             }
         }
     }
