@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -21,7 +22,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        guard let url = URL(string: "\(APIKeys.request)/\(APIKeys.privateKey)/42.3601,-71.0589") else {
+            return
+        }
+        request(url).responseJSON { response in
+            if let error = response.error {
+                print(error)
+            } else if let json =  response.result.value {
+                print(json)
+            }
+        }
     }
 
 
