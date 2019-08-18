@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "wind.pdf"
+      "filename" : "connection-lost.pdf"
     }
   ],
   "info" : {
@@ -10,7 +10,6 @@
     "author" : "xcode"
   },
   "properties" : {
-    "compression-type" : "automatic",
     "preserves-vector-representation" : true
   }
 }

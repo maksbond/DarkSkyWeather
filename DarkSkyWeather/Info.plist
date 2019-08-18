@@ -40,6 +40,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>myWeather application requires your device location.</string>
+	<string>myWeather application requires your device location to get info about weather</string>
 </dict>
 </plist>
