@@ -13,9 +13,11 @@
 		7AA57E29230864A0005B556E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA57E28230864A0005B556E /* Assets.xcassets */; };
 		7AA57E2C230864A0005B556E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA57E2A230864A0005B556E /* LaunchScreen.storyboard */; };
 		7ABC4C3F23087D1C009DB920 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABC4C3E23087D1C009DB920 /* Alamofire.framework */; };
-		7ABC4C4323087E28009DB920 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4223087E28009DB920 /* APIKeys.swift */; };
+		7ABC4C4323087E28009DB920 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4223087E28009DB920 /* WeatherAPI.swift */; };
 		7ABC4C4523088D15009DB920 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4423088D15009DB920 /* WeatherService.swift */; };
 		7ABC4C4723088E5B009DB920 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4623088E5B009DB920 /* Weather.swift */; };
+		7ABC4C4923098BB9009DB920 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4823098BB9009DB920 /* LocalizableStrings.swift */; };
+		7ABC4C4D23098CBA009DB920 /* ViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC4C4C23098CBA009DB920 /* ViewController+UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +29,11 @@
 		7AA57E2B230864A0005B556E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AA57E2D230864A0005B556E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABC4C3E23087D1C009DB920 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		7ABC4C4223087E28009DB920 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		7ABC4C4223087E28009DB920 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		7ABC4C4423088D15009DB920 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		7ABC4C4623088E5B009DB920 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		7ABC4C4823098BB9009DB920 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		7ABC4C4C23098CBA009DB920 /* ViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +88,8 @@
 			children = (
 				7AA57E212308649E005B556E /* AppDelegate.swift */,
 				7AA57E232308649E005B556E /* ViewController.swift */,
-				7ABC4C4223087E28009DB920 /* APIKeys.swift */,
-				7ABC4C4423088D15009DB920 /* WeatherService.swift */,
-				7ABC4C4623088E5B009DB920 /* Weather.swift */,
+				7ABC4C4A23098C20009DB920 /* Weather */,
+				7ABC4C4B23098C77009DB920 /* Utilities */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -99,6 +102,25 @@
 				7AA57E2A230864A0005B556E /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7ABC4C4A23098C20009DB920 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				7ABC4C4223087E28009DB920 /* WeatherAPI.swift */,
+				7ABC4C4423088D15009DB920 /* WeatherService.swift */,
+				7ABC4C4623088E5B009DB920 /* Weather.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		7ABC4C4B23098C77009DB920 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7ABC4C4823098BB9009DB920 /* LocalizableStrings.swift */,
+				7ABC4C4C23098CBA009DB920 /* ViewController+UI.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +219,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABC4C4523088D15009DB920 /* WeatherService.swift in Sources */,
-				7ABC4C4323087E28009DB920 /* APIKeys.swift in Sources */,
+				7ABC4C4923098BB9009DB920 /* LocalizableStrings.swift in Sources */,
+				7ABC4C4323087E28009DB920 /* WeatherAPI.swift in Sources */,
 				7AA57E242308649E005B556E /* ViewController.swift in Sources */,
+				7ABC4C4D23098CBA009DB920 /* ViewController+UI.swift in Sources */,
 				7AA57E222308649E005B556E /* AppDelegate.swift in Sources */,
 				7ABC4C4723088E5B009DB920 /* Weather.swift in Sources */,
 			);
@@ -353,7 +377,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = DarkSkyWeather/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,7 +400,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = DarkSkyWeather/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     /// Represents current temperature for timezone.
     @IBOutlet var temperatureLabel: UILabel!
     
+    /// Icon image view for current weather state.
+    @IBOutlet var iconImageView: UIImageView!
+    
     /// Location manager to get current location.
     private let locationManager = CLLocationManager()
     
@@ -32,6 +35,10 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.updateWeather()
+    }
+    
+    private func updateWeather() {
         guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else {
             // TODO: Add handler for failed status
             return
@@ -39,9 +46,9 @@ class ViewController: UIViewController {
         if let location = locationManager.location {
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
-            weatherService.requestCurrent(for: (latitude: latitude, longitude: longitude)) { weather, error in
+            weatherService.requestWeather(for: (latitude: latitude, longitude: longitude)) { weather, error in
                 if let error = error {
-                    // TODO: Process error
+                    self.showAlert(for: WeatherServiceErrorCode(rawValue: error.code) ?? .unknown)
                 } else if let weather = weather {
                     DispatchQueue.main.async { [weak self] in
                         guard let strongSelf = self else { return }
@@ -50,13 +57,17 @@ class ViewController: UIViewController {
                             strongSelf.summaryLabel.text = summary
                             strongSelf.timezoneLabel.text = timezone
                             strongSelf.temperatureLabel.text = "\(round(temperature))"
+                            guard let image = UIImage(named: icon) else {
+                                strongSelf.iconImageView.image = UIImage()
+                                return
+                            }
+                            strongSelf.iconImageView.image = image
                         }
                     }
                 }
             }
         }
     }
-
 
 }
 

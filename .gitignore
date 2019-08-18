@@ -70,4 +70,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 # File with API Keys.
-DarkSkyWeather/Sources/APIKeys.swift
+DarkSkyWeather/Sources/Weather/WeatherAPI.swift
